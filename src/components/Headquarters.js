@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../stylesheets/Headquarters.css';
 import { Grid } from 'semantic-ui-react';
 import Details from './Details'
+import LogPanel from './LogPanel'
 
 
 class Headquarters extends Component {
@@ -21,6 +22,7 @@ class Headquarters extends Component {
         <Grid.Column width={3}>
 
         {/* and here. Take visual cues from the screenshot/video in the Readme. */}
+        <LogPanel/>
 
         </Grid.Column>
       </Grid>
