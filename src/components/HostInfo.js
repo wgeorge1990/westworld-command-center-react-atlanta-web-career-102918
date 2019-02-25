@@ -22,8 +22,8 @@ class HostInfo extends Component {
     // See the Semantic docs for more info: https://react.semantic-ui.com/modules/dropdown/#usage-controlled
   }
 
-  toggle = () => {
-    console.log("The radio button fired");
+  toggle = (e) => {
+    this.props.activateDeactivate()
   }
 
   render(){
@@ -45,7 +45,7 @@ class HostInfo extends Component {
               </Card.Header>
               <Card.Meta>
                 <Radio
-                  onChange={this.toggle}
+                  onChange={(e) => this.toggle(e)}
                   label={"Active"}
                   /* Sometimes the label should take "Decommissioned". How are we going to conditionally render that? */
                   checked={true}

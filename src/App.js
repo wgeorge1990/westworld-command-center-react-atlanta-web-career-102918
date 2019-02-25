@@ -13,9 +13,27 @@ class App extends Component {
   // It's up to you whether they should be stateful or not.
   state = {
     allHosts: [],
-    allAreas: []
-
+    allAreas: [],
+    selectedHost: null
   }
+
+  showHostDetails = (e, host) => {
+    this.setState({
+      selectedHost: host
+    })
+  }
+
+  activateDeactivate = (e) => {
+    //console.log('inside avtivateDeactivate')
+    const currentHost = this.state.selectedHost
+    currentHost.active = !currentHost.active
+
+    //console.log(currentHost)
+    this.setState({
+      selectedHost: currentHost
+    })
+  }
+
 
   fetchHosts = () => {
     fetch(urlHosts)
@@ -39,12 +57,12 @@ class App extends Component {
   }
 
   render(){
-    console.log(this.state)
+    //console.log(this.state)
     return (
       <Segment id='app'>
         {/* What components should go here? Check out Checkpoint 1 of the Readme if you're confused */}
-        <WestworldMap allAreas={this.state.allAreas} allHosts={this.state.allHosts}/>
-        <Headquarters allAreas={this.state.allAreas} allHosts={this.state.allHosts}/>
+        <WestworldMap allAreas={this.state.allAreas} allHosts={this.state.allHosts} selectedHost={this.state.selectedHost}/>
+        <Headquarters allAreas={this.state.allAreas} activateDeactivate={this.activateDeactivate} showHostDetails={this.showHostDetails} selectedHost={this.state.selectedHost} allHosts={this.state.allHosts}/>
       </Segment>
     )
   }

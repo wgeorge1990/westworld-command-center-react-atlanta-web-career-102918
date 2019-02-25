@@ -8,16 +8,9 @@ import ColdStorage from './ColdStorage'
 
 class Headquarters extends Component {
   // Remember, there's many ways to do this. This doesn't have to be a class component. It's up to you.
-  state = {
-    selectedHost: null
-  }
 
-  showHostDetails = (e, host) => {
-    console.log("just clicked on the host i am logging from inside the Headquarters component", host)
-    this.setState({
-      selectedHost: host
-    })
-  }
+
+
 
   render(){
     return(
@@ -27,13 +20,15 @@ class Headquarters extends Component {
         {/* Something goes here.... */}
         <ColdStorage
         allHosts={this.props.allHosts}
-        showHostDetails={this.showHostDetails}
-        selectedHostId={this.state.selectedHostId}/>
+        showHostDetails={this.props.showHostDetails}
+        selectedHost={this.props.selectedHost}/>
 
         </Grid.Column>
         <Grid.Column width={5}>
           <Details
-          selectedHost={this.state.selectedHost}
+          selectedHost={this.props.selectedHost}
+          showHostDetails={this.props.showHostDetails}
+          activateDeactivate={this.props.activateDeactivate}
           />
         </Grid.Column>
         <Grid.Column width={3}>

@@ -8,11 +8,16 @@ const WestworldMap = (props) => {
 
   return (
     <Segment id="map" >
+
       {props.allAreas.map(area =>
         <Area
           Area={area}
           key={area.id}
-          
+          selectedHost={props.selectedHost}
+          hosts={props.allHosts}
+          limit={area.limit}
+
+
           />
       )
     }

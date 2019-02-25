@@ -13,12 +13,14 @@ class Details extends React.Component{
   renderSomething = () => (<Image size='medium' src={Images.westworldLogo}/>)
 
   render(){
-    console.log((this.props.selectedHost === null, this.props.selectedHost))
+    //console.log((this.props.selectedHost === null, this.props.selectedHost))
     return(
       <Segment id="details" className="HQComps">
 
       {
-        (this.props.selectedHost === null) ? this.renderSomething() : <HostInfo selectedHost={this.props.selectedHost}/>
+        (this.props.selectedHost === null) ? this.renderSomething() : <HostInfo selectedHost={this.props.selectedHost}
+        showHostDetails={this.props.showHostDetails}
+        activateDeactivate={this.props.activateDeactivate}/>
     }
 
 

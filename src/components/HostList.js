@@ -6,7 +6,7 @@ class HostList extends React.Component {
   render() {
     return(
       <Card.Group itemsPerRow={6}>
-        {this.props.allHosts.map(host => <Host showHostDetails={this.props.showHostDetails} host={host} key={host.id}/>)}
+        {(this.props.allHosts || this.props.hosts).map(host => <Host showHostDetails={this.props.showHostDetails} host={host} key={host.id}/>)}
       </Card.Group>
     )
   }
